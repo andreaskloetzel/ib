@@ -1,8 +1,8 @@
 {
-  "name": "@stoqey/ib",
+  "name": "@andreaskloetzel/ib",
   "version": "1.3.21",
   "private": false,
-  "description": "Interactive Brokers TWS/IB Gateway API client library for Node.js (TS)",
+  "description": "Forked Interactive Brokers TWS/IB Gateway API client library for Node.js (TS)",
   "keywords": [
     "interactive",
     "brokers",
@@ -37,13 +37,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/stoqey/ib.git"
+    "url": "https://github.com/andreaskloetzel/ib.git"
   },
   "license": "MIT",
   "author": {
-    "name": "Ceddy Muhoza",
-    "email": "ceddymuhoza@gmail.com",
-    "url": "https://ceddy.org"
+    "name": "Andreas Kloetzel"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

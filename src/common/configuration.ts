@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars, @typescript-eslint/no-var-requires */
 import { readFileSync } from "fs";
 import * as path from "path";
+import { fileURLToPath } from "url";
 
 require("dotenv").config();
 
@@ -56,12 +57,14 @@ function readJson(readPath: string) {
 }
 
 function read(file: string): Configuration {
+  // Fix for __dirname in ES module scope
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const filePath = path.resolve(
     __dirname,
     "..",
     "..",
     "config",
-    `${file}.json`
+    `${file}.json`,
   );
   return readJson(filePath);
 }
@@ -92,7 +95,7 @@ function loadEnvironmentSpecific(config: Configuration, environment: string) {
 
 const ensureInteger = (
   fields: (keyof Configuration)[],
-  config: Configuration
+  config: Configuration,
 ) =>
   fields.forEach((field) => {
     const value = config[field];
