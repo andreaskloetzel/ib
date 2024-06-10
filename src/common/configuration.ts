@@ -62,16 +62,16 @@ function readJson(readPath: string) {
 
 function read(file: string): Configuration {
   // Fix for __dirname in ES module scope
-  // const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  // const filePath = path.resolve(
-  //   __dirname,
-  //   "..",
-  //   "..",
-  //   "config",
-  //   `${file}.json`,
-  // );
-  // return readJson(filePath);
-  return;
+  // @ts-expect-error this lib must be used inside electron main process
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const filePath = path.resolve(
+    __dirname,
+    "..",
+    "..",
+    "config",
+    `${file}.json`,
+  );
+  return readJson(filePath);
 }
 
 function assignEnvironment(config: any) {
