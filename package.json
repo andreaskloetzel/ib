@@ -58,6 +58,7 @@
     "doc:dev": "typedoc --out ./doc-dev",
     "lint": "eslint . --ext .ts",
     "prepublishOnly": "yarn build",
+    "prepare": "yarn build",
     "release": "yarn lint && yarn test && yarn doc && yarn build",
     "test": "jest --maxWorkers=8 --reporters=default --useStderr --detectOpenHandles",
     "test-next": "jest ./src/tests/unit/api-next/ --maxWorkers=8 --reporters=default --useStderr --detectOpenHandles",
